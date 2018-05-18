@@ -69,11 +69,17 @@
       </div>
 
       <!-- Chart Cards -->
-      <!-- <div class="row">
+      <div class="row">
           <div class="col-md-6">
               <div class="card card-chart">
                   <div class="card-header card-header-success">
-                      <div class="ct-chart ct-golden-section" id="chart1"></div>
+                      <x-chartist class="ct-chart" style="stroke-width:50px;"
+                      [data]="customer_suffering.data"
+                      [type]="customer_suffering.type"
+                      [options]="customer_suffering.options"
+                      [responsiveOptions]="customer_suffering.responsiveOptions"
+                      [events]="customer_suffering.events">
+                    </x-chartist>
                   </div>
                   <div class="card-body">
                       <h4 class="card-title">Customer Suffering Report</h4>
@@ -86,24 +92,66 @@
                       </div>
                   </div>
               </div>
-          </div> -->
-         <!--  <div class="col-md-4">
+          </div>
+          <div class="col-md-6">
               <div class="card card-chart">
-                  <div class="card-header card-header-warning">
-                      <div class="ct-chart" id="websiteViewsChart"></div>
+                  <div class="card-header card-header-info">
+
+                      <div class="feedback-chart">
+                          <div class="rated-happy">
+                            <div class="smiley happy">
+                        <div class="eyes">
+                          <div class="eye"></div>
+                          <div class="eye"></div>
+                        </div>
+                        <div class="mouth"></div>
+                        <div class="card-title">
+                            <h3><b>30%</b></h3>
+                            <h3>Happy</h3>
+                          </div>
+                      </div>
+                        </div>
+                        <div  class="rated-sad">
+                          <div class="smiley normal">
+                        <div class="eyes">
+                          <div class="eye"></div>
+                          <div class="eye"></div>
+                        </div>
+                        <div class="mouth"></div>
+                        <div class="card-title">
+                            <h3><b>40%</b></h3>
+                            <h3>Satisfied</h3>
+                          </div>
+                      </div>
+                        </div>
+                        <div  class="rated-angry"> 
+                          <div class="smiley angry">
+                        <div class="eyes">
+                          <div class="eye"></div>
+                          <div class="eye"></div>
+                        </div>
+                        <div class="mouth"></div>
+                        <div class="card-title">
+                            <h3><b>50%</b></h3>
+                            <h3>Angry</h3>
+                          </div>
+                      </div>
+                        </div>
+                      </div>
                   </div>
                   <div class="card-body">
-                      <h4 class="card-title">Email Subscriptions</h4>
+                      <h4 class="card-title">Voice of Customer</h4>
                       <p class="card-category">Last Campaign Performance</p>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
-                          <i class="material-icons">access_time</i> campaign sent 2 days ago
+                          <i class="material-icons">access_time</i> Weekly Report
                       </div>
                   </div>
               </div>
           </div>
-          <div class="col-md-4">
+
+          <!-- <div class="col-md-4">
               <div class="card card-chart">
                   <div class="card-header card-header-danger">
                       <div class="ct-chart" id="completedTasksChart"></div>
@@ -118,8 +166,8 @@
                       </div>
                   </div>
               </div>
-          </div>
-      </div> -->
+          </div> -->
+      </div>
       <!-- end of chart cards -->
 
       <!-- table cards -->

@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { ChartistModule } from 'ng-chartist';
 
 
 import { AppComponent } from './app.component';
@@ -15,10 +17,15 @@ import { FooterComponent } from './footer/footer.component';
     SidebarComponent,
     NavbarComponent,
     DashboardComponent,
-    FooterComponent
+    FooterComponent,
+    // LiveChartComponent,
+    // AsyncChartComponent,
+    // DynamicChartComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ChartistModule, 
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
