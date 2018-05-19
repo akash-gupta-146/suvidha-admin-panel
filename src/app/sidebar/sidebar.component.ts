@@ -9,11 +9,35 @@ import { AppComponent } from '../app.component';
 })
 export class SidebarComponent implements OnInit {
 
+  list:SidebarList[];
 
   constructor(private router : Router,
     private appComponent:AppComponent ) { }
 
   ngOnInit() {
+    if(localStorage.role == 'manager'){
+      this.list = [
+          {
+            name:'Dashboard',
+            icon:'dashboard',
+            route:'dashboard'
+          },
+          {
+            name:'page',
+            icon:'assignment_returned',
+            route:'dashboard'
+          }
+      ]
+    }
+    if(localStorage.role == 'CEO'){
+      this.list = [
+          {
+            name:'Dashboard',
+            icon:'dashboard',
+            route:'dashboard'
+          }
+      ]
+    }
   }
 logout(){
   localStorage.removeItem("username");
@@ -24,4 +48,10 @@ logout(){
       this.appComponent.role= null;
     this.appComponent.email= null;
 }
+}
+
+export interface SidebarList{
+  name:string;
+  icon:string;
+  route:string;
 }

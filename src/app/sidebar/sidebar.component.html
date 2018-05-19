@@ -6,42 +6,24 @@
   </div>
   <div class="sidebar-wrapper">
       <ul class="nav">
-          <li class="nav-item active">
-              <a class="nav-link" href="#">
-                  <i class="material-icons">dashboard</i>
-                  <p>Dashboard</p>
+          <li class="nav-item" *ngFor="let page of list">
+              <a class="nav-link" [routerLink]="page.route">
+                  <i class="material-icons">{{ page.icon }}</i>
+                  <p>{{ page.name }}</p>
               </a>
           </li>
-          <li class="nav-item ">
+          <!-- <li class="nav-item ">
               <a class="nav-link" href="#">
                   <i class="material-icons">person</i>
                   <p>User Profile</p>
               </a>
           </li>
-          <!--  <li class="nav-item ">
-              <a class="nav-link" href="#">
-                  <i class="material-icons">library_books</i>
-                  <p>Typography</p>
-              </a>
-          </li>
-          <li class="nav-item ">
-              <a class="nav-link" href="#">
-                  <i class="material-icons">bubble_chart</i>
-                  <p>Icons</p>
-              </a>
-          </li>
-          <li class="nav-item ">
-              <a class="nav-link" href="#">
-                  <i class="material-icons">location_ons</i>
-                  <p>Maps</p>
-              </a>
-          </li> -->
           <li class="nav-item ">
               <a class="nav-link" href="#">
                   <i class="material-icons">notifications</i>
                   <p>Notifications</p>
               </a>
-          </li>
+          </li>-->
           <li class="nav-item ">
                 <a class="nav-link" (click)="logout()">
                     <i class="material-icons">content_paste</i>
@@ -53,7 +35,7 @@
                   <i class="material-icons">public</i>
                   <p>Suvidha</p>
               </a>
-          </li>
+          </li> 
       </ul>
   </div>
 </div>
