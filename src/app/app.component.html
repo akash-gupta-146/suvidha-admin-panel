@@ -1,9 +1,10 @@
 <div class="wrapper">
-<app-sidebar></app-sidebar>
+<app-sidebar *ngIf="username"></app-sidebar>
 <div class="main-panel">
-  <app-navbar></app-navbar>
+  <app-navbar *ngIf="username"></app-navbar>
   <div  class="content">
-  <app-dashboard></app-dashboard>
+  <!-- <app-dashboard></app-dashboard> -->
+  <router-outlet></router-outlet>
   </div>
   <app-footer></app-footer>
 </div>

@@ -10,6 +10,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
 
+import { RouterModule, Routes } from '@angular/router';
+
+import { LoginComponent } from './login/login.component';
+
+const routes: Routes = [
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'login', component: LoginComponent },
+  {path : '', component : LoginComponent}
+  ];
 
 @NgModule({
   declarations: [
@@ -18,6 +27,7 @@ import { FooterComponent } from './footer/footer.component';
     NavbarComponent,
     DashboardComponent,
     FooterComponent,
+    LoginComponent,
     // LiveChartComponent,
     // AsyncChartComponent,
     // DynamicChartComponent
@@ -25,7 +35,8 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     BrowserModule,
     ChartistModule, 
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

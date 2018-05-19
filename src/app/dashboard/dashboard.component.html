@@ -5,7 +5,7 @@
               <div class="card card-stats">
                   <div class="card-header card-header-warning card-header-icon">
                       <div class="card-icon">
-                          <i class="material-icons">content_copy</i>
+                          <i class="material-icons">style</i>
                       </div>
                       <p class="card-category">Products Purchased</p>
                       <h3 class="card-title">10,000
@@ -22,7 +22,7 @@
               <div class="card card-stats">
                   <div class="card-header card-header-success card-header-icon">
                       <div class="card-icon">
-                          <i class="material-icons">store</i>
+                          <i class="material-icons">attach_money</i>
                       </div>
                       <p class="card-category">Revenue</p>
                       <h3 class="card-title">$34,245</h3>
@@ -40,7 +40,7 @@
                       <div class="card-icon">
                           <i class="material-icons">info_outline</i>
                       </div>
-                      <p class="card-category">Incidences</p>
+                      <p class="card-category">Incidents</p>
                       <h3 class="card-title">800</h3>
                   </div>
                   <div class="card-footer">
@@ -54,9 +54,9 @@
               <div class="card card-stats">
                   <div class="card-header card-header-info card-header-icon">
                       <div class="card-icon">
-                          <i class="fa fa-twitter"></i>
+                            <i class="material-icons">offline_pin</i>
                       </div>
-                      <p class="card-category">Incidence Fixed</p>
+                      <p class="card-category">Incidents Fixed</p>
                       <h3 class="card-title">750</h3>
                   </div>
                   <div class="card-footer">
@@ -96,7 +96,6 @@
           <div class="col-md-6">
               <div class="card card-chart">
                   <div class="card-header card-header-info">
-
                       <div class="feedback-chart">
                           <div class="rated-happy">
                             <div class="smiley happy">
@@ -141,7 +140,7 @@
                   </div>
                   <div class="card-body">
                       <h4 class="card-title">Voice of Customer</h4>
-                      <p class="card-category">Last Campaign Performance</p>
+                      <!-- <p class="card-category">Last Campaign Performance</p> -->
                   </div>
                   <div class="card-footer">
                       <div class="stats">
@@ -150,23 +149,49 @@
                   </div>
               </div>
           </div>
+<ng-container >
+        <div class="col-md-6 col-sm-12">
+                <div class="card card-chart">
+                    <div class="card-header card-header-danger">
+                            <div id="open_incidences"></div>
+                    </div>
+                    <div class="card-body">
+                            <h4 class="card-title">Open Incidents Current</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-warning">
+                                <div id="customer_suffering_report"></div>
+                        </div>
+                        <div class="card-body">
+                                <h4 class="card-title">Customer Suffering Report</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-success">
+                                <div id="incident_weekly_report"></div>
+                        </div>
+                        <div class="card-body">
+                                <h4 class="card-title">Incident Weekly Report</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                        <div class="card card-chart">
+                            <div class="card-header card-header-info">
+                                    <div id="regions_chart"></div>
+                            </div>
+                            <div class="card-body">
+                                    <h4 class="card-title">Regional Incitents</h4>
+                            </div>
+                        </div>
+                    </div>
+</ng-container>
 
-          <!-- <div class="col-md-4">
-              <div class="card card-chart">
-                  <div class="card-header card-header-danger">
-                      <div class="ct-chart" id="completedTasksChart"></div>
-                  </div>
-                  <div class="card-body">
-                      <h4 class="card-title">Completed Tasks</h4>
-                      <p class="card-category">Last Campaign Performance</p>
-                  </div>
-                  <div class="card-footer">
-                      <div class="stats">
-                          <i class="material-icons">access_time</i> campaign sent 2 days ago
-                      </div>
-                  </div>
-              </div>
-          </div> -->
       </div>
       <!-- end of chart cards -->
 
