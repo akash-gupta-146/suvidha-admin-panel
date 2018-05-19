@@ -5,6 +5,7 @@ import * as Chartist from 'chartist';
 
 declare var google: any;
 declare var require: any;
+declare var $: any;
 
 const data: any = require('./data.json');
 
@@ -21,6 +22,8 @@ export class DashboardComponent implements OnInit {
   public customer_suffering:any;
   public open_incidents:any;
   role:string;
+  modalChart:string;
+
   constructor() {
     this.customer_suffering = 
       {
@@ -97,6 +100,21 @@ export class DashboardComponent implements OnInit {
 
     let chart = new google.visualization.BarChart(document.getElementById('customer_suffering_report'));
     chart.draw(data, options);
+    google.visualization.events.addListener(chart, 'select', function() {
+      var selection = chart.getSelection();
+          if (selection.length) {
+          var title = data.getValue(selection[0].row, 0);
+          var value = data.getValue(selection[0].row, selection[0].column);
+        }
+        if(title == 'Cooking and Baking')
+          $('#cookingSufferers').modal();
+        
+    });
+    
+  }
+
+  setModalChart(){
+    console.log('hello');
   }
 
   incident_weekly_report() {
@@ -120,6 +138,7 @@ export class DashboardComponent implements OnInit {
       vAxis: {
         title: 'Appliances'
       },
+      bar: { groupWidth: '75%' },
       'legend': 'top',
       bars: 'vertical',
       colors:['#cddc3a','#8ac34a','#3a8a3d'],
@@ -174,7 +193,7 @@ export class DashboardComponent implements OnInit {
             duration: 600,
             easing: 'in-out'
           }
-          };
+      };
 
       let chart = new google.visualization.GeoChart(document.getElementById('regions_chart'));
 
@@ -182,13 +201,116 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  incidents_hour(){
+    let data = google.visualization.arrayToDataTable([
+       ['Appliances', 'Customer', 'Support Centre', 'Engineer', 'Repair', { role: 'annotation' } ],
+      ['Laundry Care', 0.25, 4, 9, 4, ''],
+      ['Cooking and Baking', 1, 2, 12, 3, ''],
+      ['Dishwasher', 0.5, 3, 7, 5, ''],
+      ['Cooling', 0.25, 1, 8, 4, ''],
+      ['Coffee Machines', 0.3, 1, 5, 1, '']
+    ]);
+
+    let options = {
+      chartArea: {
+        left: 120,
+      },
+      legend: { position: 'top', maxLines: 3 },
+      bar: { groupWidth: '75%' },
+      isStacked: true,
+      colors:['#c370fd','#9b3aee','#8e2baa','#5a0173'],
+      animation: {
+        "startup": true,
+        duration: 600,
+        easing: 'in-out'
+      }
+    };
+    
+    let chart = new google.visualization.BarChart(document.getElementById('incedents_hour'));
+    chart.draw(data, options);
+  }
+
+  repair_time(){
+
+    var data = google.visualization.arrayToDataTable([
+      ['Appliances', 'Mean time to repair'],
+      ['Laundry Care', 2],
+      ['Cooking and Baking', 1,],
+      ['Dishwasher', 0.5],
+      ['Cooling', 2.5],
+      ['Coffee Machines', .25]
+    ]);
+
+    var options = {
+      chartArea: {width: '50%'},
+      hAxis: {
+        title: 'Mean Time To Repair (in days)',
+        minValue: 0
+      },
+      vAxis: {
+        title: 'Appliances'
+      },
+      'legend':'top',
+      colors:['#e63935'],
+      animation: {
+        "startup": true,
+        duration: 600,
+        easing: 'in-out'
+      }
+    };
+
+    var chart = new google.visualization.BarChart(document.getElementById('repair_time'));
+
+    chart.draw(data, options);
+  }
+
+  sufferers_piechart(){
+        
+    var data = google.visualization.arrayToDataTable([
+      ['Appliance', '#Sufferers'],
+      ['Ovens',     11],
+      ['Steam Cooking',      2],
+      ['Hobs & Cooktops',  2],
+      ['Kitchen Chimneys', 2],
+      ['Microwaves',    7],
+      ['Drawers', 3]
+    ]);
+
+    var options = {
+      'width':600,
+      'height':400,
+      'legend':'left',
+      is3D: true,
+      colors:['#ea4b59','#f0954f','#ffe902','#bccf01','#64c6ef','#009fe3','#c066a7'],
+      animation: {
+        "startup": true,
+        duration: 600,
+        easing: 'in-out'
+      }
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('sufferers_piechart'));
+
+    chart.draw(data, options);
+  }
+
+
   ngOnInit() {
     this.role = localStorage.role;
     google.charts.load('current', {packages: ['corechart', 'bar']});
     google.charts.setOnLoadCallback(this.draw_open_incidences_chart);
+    
     google.charts.setOnLoadCallback(this.customer_suffering_report);
+
     google.charts.setOnLoadCallback(this.incident_weekly_report);
+    
     google.charts.setOnLoadCallback(this.regions_chart);
+    
+    google.charts.setOnLoadCallback(this.incidents_hour);
+    
+    google.charts.setOnLoadCallback(this.repair_time);
+
+    google.charts.setOnLoadCallback(this.sufferers_piechart);
   }
 }
 
