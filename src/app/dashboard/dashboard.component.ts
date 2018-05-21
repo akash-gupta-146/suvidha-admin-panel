@@ -23,6 +23,7 @@ export class DashboardComponent implements OnInit {
   public open_incidents:any;
   role:string;
   modalChart:string;
+  open_incidences: Array<any>
 
   constructor() {
     this.customer_suffering = 
@@ -35,21 +36,61 @@ export class DashboardComponent implements OnInit {
             horizontalBars: true,
             axisY: {
               offset: 120
-            }
+          }
         }
       }
+  }
+  
+  ceo_customer_sufferers(){
+    let data = google.visualization.arrayToDataTable([
+      ['Appliances', '#Sufferers'],
+      ['Water Purifier', 20],
+      ['Vacuum Cleaner', 55,],
+      ['Air Purifier', 32],
+      ['Security Solutions', 45],
+      ['Health Conditionerss', 8]
+    ]);
+
+    let options = {
+      chartArea: {
+        left: 120,
+      },
+      backgroundColor:'transparent',
+      hAxis: {
+        title: 'Customers Suffering',
+        minValue: 0,
+        textStyle: {color:'#fff'},
+        titleTextStyle: {color:'#fff'},
+        baselineColor:'#fff',
+      },
+      vAxis: {
+        title: 'Appliances',
+        textStyle: {color:'#fff'},
+        titleTextStyle: {color:'#fff'},
+      },
+      'legend': 'top',
+      legendTextStyle:{color:'#fff'},
+      colors:['#fff'],
+      animation: {
+        "startup": true,
+        duration: 600,
+        easing: 'in-out'
+      }
+    };
+    
+    let chart = new google.visualization.BarChart(document.getElementById('ceo_customer_sufferers'));
+    chart.draw(data, options);
   }
 
   draw_open_incidences_chart() {
     let data = google.visualization.arrayToDataTable([
       ['Appliances', 'New', 'Assigned', 'InProgress', { role: 'annotation' } ],
-      ['Laundry Care', 10, 44, 20, ''],
-      ['Cooking and Baking', 6, 52, 23, ''],
-      ['Dishwasher', 18, 39, 9, ''],
-      ['Cooling', 5, 12, 10, ''],
-      ['Coffee Machines', 8, 4, 12, '']
-    ]);
-
+      ['Water Purifier', 10, 44, 20, ''],
+      ['Vacuum Cleaner', 6, 52, 23, ''],
+      ['Air Purifier', 18, 39, 9, ''],
+      ['Security Solutions', 5, 12, 10, ''],
+      ['Health Conditionerss', 8, 4, 12, '']
+    ])
     let options = {
       chartArea: {
         left: 120,
@@ -73,11 +114,11 @@ export class DashboardComponent implements OnInit {
 
     let data = google.visualization.arrayToDataTable([
       ['Appliances', '#Sufferers'],
-      ['Laundry Care', 20],
-      ['Cooking and Baking', 55,],
-      ['Dishwasher', 32],
-      ['Cooling', 45],
-      ['Coffee Machines', 8]
+      ['Water Purifier', 20],
+      ['Vacuum Cleaner', 55,],
+      ['Air Purifier', 32],
+      ['Security Solutions', 45],
+      ['Health Conditionerss', 8]
     ]);
 
     let options = {
@@ -97,6 +138,7 @@ export class DashboardComponent implements OnInit {
         easing: 'in-out'
       }
     };
+    
 
     let chart = new google.visualization.BarChart(document.getElementById('customer_suffering_report'));
     chart.draw(data, options);
@@ -106,8 +148,8 @@ export class DashboardComponent implements OnInit {
           var title = data.getValue(selection[0].row, 0);
           var value = data.getValue(selection[0].row, selection[0].column);
         }
-        if(title == 'Cooking and Baking')
-          $('#cookingSufferers').modal();
+        if(title == 'Vacuum Cleaner')
+          $('#Vacuum CleanerSufferers').modal();
         
     });
     
@@ -120,11 +162,11 @@ export class DashboardComponent implements OnInit {
   incident_weekly_report() {
     let data = google.visualization.arrayToDataTable([
       ['Appliances', 'Carry Forward', 'New', 'Closed'],
-      ['Laundry Care', 10, 40, 25],
-      ['Cooking', 26, 42, 20],
-      ['Dishwasher', 2, 9, 12],
-      ['Cooling', 15, 22, 10],
-      ['Coffee Machines', 3, 4, 2]
+      ['Water Purifier', 10, 40, 25],
+      ['Vacuum Cleaner', 26, 42, 20],
+      ['Air Purifier', 2, 9, 12],
+      ['Security Solutions', 15, 22, 10],
+      ['Health Conditionerss', 3, 4, 2]
     ]);
 
 
@@ -204,11 +246,11 @@ export class DashboardComponent implements OnInit {
   incidents_hour(){
     let data = google.visualization.arrayToDataTable([
        ['Appliances', 'Customer', 'Support Centre', 'Engineer', 'Repair', { role: 'annotation' } ],
-      ['Laundry Care', 0.25, 4, 9, 4, ''],
-      ['Cooking and Baking', 1, 2, 12, 3, ''],
-      ['Dishwasher', 0.5, 3, 7, 5, ''],
-      ['Cooling', 0.25, 1, 8, 4, ''],
-      ['Coffee Machines', 0.3, 1, 5, 1, '']
+      ['Water Purifier', 0.25, 4, 9, 4, ''],
+      ['Vacuum Cleaner', 1, 2, 12, 3, ''],
+      ['Air Purifier', 0.5, 3, 7, 5, ''],
+      ['Security Solutions', 0.25, 1, 8, 4, ''],
+      ['Health Conditionerss', 0.3, 1, 5, 1, '']
     ]);
 
     let options = {
@@ -234,11 +276,11 @@ export class DashboardComponent implements OnInit {
 
     var data = google.visualization.arrayToDataTable([
       ['Appliances', 'Mean time to repair'],
-      ['Laundry Care', 2],
-      ['Cooking and Baking', 1,],
-      ['Dishwasher', 0.5],
-      ['Cooling', 2.5],
-      ['Coffee Machines', .25]
+      ['Water Purifier', 2],
+      ['Vacuum Cleaner', 1,],
+      ['Air Purifier', 0.5],
+      ['Security Solutions', 2.5],
+      ['Health Conditionerss', .25]
     ]);
 
     var options = {
@@ -269,7 +311,7 @@ export class DashboardComponent implements OnInit {
     var data = google.visualization.arrayToDataTable([
       ['Appliance', '#Sufferers'],
       ['Ovens',     11],
-      ['Steam Cooking',      2],
+      ['Steam Vacuum Cleaner',      2],
       ['Hobs & Cooktops',  2],
       ['Kitchen Chimneys', 2],
       ['Microwaves',    7],
@@ -298,6 +340,9 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.role = localStorage.role;
     google.charts.load('current', {packages: ['corechart', 'bar']});
+
+    google.charts.setOnLoadCallback(this.ceo_customer_sufferers);
+
     google.charts.setOnLoadCallback(this.draw_open_incidences_chart);
     
     google.charts.setOnLoadCallback(this.customer_suffering_report);

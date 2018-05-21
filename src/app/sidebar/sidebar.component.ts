@@ -23,9 +23,9 @@ export class SidebarComponent implements OnInit {
             route:'dashboard'
           },
           {
-            name:'page',
-            icon:'assignment_returned',
-            route:'dashboard'
+            name:'Incidents',
+            icon:'build',
+            route:'incidents'
           }
       ]
     }

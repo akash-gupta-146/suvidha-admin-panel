@@ -7,8 +7,8 @@
                       <div class="card-icon">
                           <i class="material-icons">style</i>
                       </div>
-                      <p class="card-category">Products Purchased</p>
-                      <h3 class="card-title">10,000
+                      <p class="card-category">Purchased</p>
+                      <h3 class="card-title">10,708
                       </h3>
                   </div>
                   <div class="card-footer">
@@ -41,7 +41,7 @@
                           <i class="material-icons">info_outline</i>
                       </div>
                       <p class="card-category">Incidents</p>
-                      <h3 class="card-title">800</h3>
+                      <h3 class="card-title">895</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
@@ -57,7 +57,7 @@
                             <i class="material-icons">offline_pin</i>
                       </div>
                       <p class="card-category">Incidents Fixed</p>
-                      <h3 class="card-title">750</h3>
+                      <h3 class="card-title">751</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
@@ -71,29 +71,24 @@
       <!-- Chart Cards -->
       <div class="row">
             <ng-container *ngIf="role=='CEO'">
-          <div class="col-md-6">
-              <div class="card card-chart">
-                  <div class="card-header card-header-success">
-                      <x-chartist class="ct-chart" style="stroke-width:50px;"
-                      [data]="customer_suffering.data"
-                      [type]="customer_suffering.type"
-                      [options]="customer_suffering.options"
-                      [responsiveOptions]="customer_suffering.responsiveOptions"
-                      [events]="customer_suffering.events">
-                    </x-chartist>
-                  </div>
-                  <div class="card-body">
-                      <h4 class="card-title">Customer Suffering Report</h4>
-                      <p class="card-category">
-                          <span class="text-success"><i class="fa fa-long-arrow-up"></i> 25% </span> increase in today's report.</p>
-                  </div>
-                  <div class="card-footer">
-                      <div class="stats">
-                          <i class="material-icons">refresh</i> updated 4 minutes ago
-                      </div>
-                  </div>
-              </div>
-          </div>
+
+                    <div class="col-md-6">
+                            <div class="card card-chart">
+                                    <div class="card-header card-header-success">
+                                <div id="ceo_customer_sufferers"></div>
+                                    </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Customer Suffering Report</h4>
+                                    <p class="card-category">
+                                        <span class="text-success"><i class="fa fa-long-arrow-up"></i> 25% </span> increase in today's report.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <i class="material-icons">refresh</i> updated 4 minutes ago
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
           <div class="col-md-6">
               <div class="card card-chart">
                   <div class="card-header card-header-info">
@@ -106,7 +101,7 @@
                         </div>
                         <div class="mouth"></div>
                         <div class="card-title">
-                            <h3><b>30%</b></h3>
+                            <h3><b>55%</b></h3>
                             <h3>Happy</h3>
                           </div>
                       </div>
@@ -119,7 +114,7 @@
                         </div>
                         <div class="mouth"></div>
                         <div class="card-title">
-                            <h3><b>40%</b></h3>
+                            <h3><b>27%</b></h3>
                             <h3>Satisfied</h3>
                           </div>
                       </div>
@@ -132,7 +127,7 @@
                         </div>
                         <div class="mouth"></div>
                         <div class="card-title">
-                            <h3><b>50%</b></h3>
+                            <h3><b>18%</b></h3>
                             <h3>Angry</h3>
                           </div>
                       </div>

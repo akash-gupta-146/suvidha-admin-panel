@@ -13,11 +13,13 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
+import { IncidentsComponent } from './pages/manager/incidents/incidents.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'login', component: LoginComponent },
-  {path : '', component : LoginComponent}
+  {path : 'incidents', component : IncidentsComponent},
+  {path : '', component : LoginComponent},
   ];
 
 @NgModule({
@@ -28,6 +30,7 @@ const routes: Routes = [
     DashboardComponent,
     FooterComponent,
     LoginComponent,
+    IncidentsComponent,
     // LiveChartComponent,
     // AsyncChartComponent,
     // DynamicChartComponent

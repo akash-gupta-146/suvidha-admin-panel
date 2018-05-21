@@ -1,8 +1,0 @@
-{
-  "customer_suffering": {
-    "labels": ["Laundry Care","Cooking and Baking","Dishwasher","Cooling","Coffee Machines"],
-    "series": [
-      [20,35,32,45,8]
-    ]
-  }
-}
