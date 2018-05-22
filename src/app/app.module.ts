@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ChartistModule } from 'ng-chartist';
-
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -31,13 +29,9 @@ const routes: Routes = [
     FooterComponent,
     LoginComponent,
     IncidentsComponent,
-    // LiveChartComponent,
-    // AsyncChartComponent,
-    // DynamicChartComponent
   ],
   imports: [
     BrowserModule,
-    ChartistModule, 
     FormsModule,
     RouterModule.forRoot(routes)
   ],

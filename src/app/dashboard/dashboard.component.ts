@@ -1,14 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartistModule } from 'ng-chartist';
-
-import * as Chartist from 'chartist';
 
 declare var google: any;
 declare var require: any;
 declare var $: any;
-
-const data: any = require('./data.json');
-
 
 
 @Component({
@@ -25,21 +19,7 @@ export class DashboardComponent implements OnInit {
   modalChart:string;
   open_incidences: Array<any>
 
-  constructor() {
-    this.customer_suffering = 
-      {
-        data: data.customer_suffering,
-        type: 'Bar',
-        options: {
-          seriesBarDistance: 10,
-            reverseData: true,
-            horizontalBars: true,
-            axisY: {
-              offset: 120
-          }
-        }
-      }
-  }
+  constructor() {}
   
   ceo_customer_sufferers(){
     let data = google.visualization.arrayToDataTable([
