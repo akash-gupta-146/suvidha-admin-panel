@@ -12,6 +12,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
 import { IncidentsComponent } from './pages/manager/incidents/incidents.component';
+import { DashboardService } from './dashboard/dashboard.service';
+import { AnimationService } from './services/animation.service';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -35,7 +37,10 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    DashboardService,
+    AnimationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

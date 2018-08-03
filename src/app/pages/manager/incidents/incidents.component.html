@@ -198,7 +198,7 @@
                                                   <div>
                                                       <b>Email:</b>{{ incident.engineerEmail }} 
                                                     </div>
-                                                    <button class="btn-sm btn-danger float-right">Change</button>
+                                                    <button class="btn-sm btn-danger float-right" data-toggle="modal" data-target="#changeEngineer" >Change</button>
                                                 </div>
                                                 
                                             </div>
@@ -517,3 +517,61 @@
       </div>
     </div>
   <!-- End of reject modal -->
+
+<!-- Change engineer modal -->
+  <div class="modal fade" id="changeEngineer" tabindex="-1" role="dialog" aria-labelledby="changeEngineer" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content card card-stats">
+        <div class="card-header card-header-danger card-header-icon">
+            <div class="card-icon">
+                <i class="material-icons">accessibility</i>
+            </div>
+            <h3 class="card-title">Chnage Engineer</h3>
+          </div>
+        <div class="modal-body">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                      <i class="material-icons">search</i>
+                  </span>
+                </div>
+                <input type="text" class="form-control" placeholder="Search Engineer">
+              </div>
+              <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th class="text-right">Status</th>
+                        <th class="text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center">1</td>
+                        <td>Rahul Kumar</td>
+                        <td>Engineer</td>
+                        <td>Available</td>
+                        <td class="td-actions text-right">
+                            <div class="form-check m-0">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-sign">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of change engineer modal -->
